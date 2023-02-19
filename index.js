@@ -1,4 +1,5 @@
 const express = require("express")
+const cors = require("cors")
 const app = express();
 const {connection} = require("./config/db")
 const {userRoute} = require("./routers/user.router")
@@ -6,6 +7,7 @@ const {noteRouter} = require("./routers/notes.route")
 const {authenticate} = require("./middlewares/authenticate.middleware")
 
 app.use(express.json())
+app.use(cors());
 
 app.get("/",(req,res)=>{
     res.send("Hi there")
